@@ -15,10 +15,13 @@ export default function StudentScreen() {
   const updateStudent = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/api/students/${id}`, {
-        firstName,
-        lastName,
-      });
+      await axios.put(
+        `https://webdevschool1.herokuapp.com/api/students/${id}`,
+        {
+          firstName,
+          lastName,
+        }
+      );
       window.location = '/students';
     } catch (error) {
       console.log(error.message);
@@ -33,7 +36,9 @@ export default function StudentScreen() {
   };
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/api/students/${id}`);
+      await axios.delete(
+        `https://webdevschool1.herokuapp.com/api/students/${id}`
+      );
       window.location = '/students';
       // navigate('/students');
     } catch (err) {
@@ -43,7 +48,9 @@ export default function StudentScreen() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/students');
+        const response = await axios.get(
+          'https://webdevschool1.herokuapp.com/api/students'
+        );
         setStudents(response.data);
       } catch (err) {
         console.log(err);

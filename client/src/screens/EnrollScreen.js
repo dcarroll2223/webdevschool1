@@ -12,7 +12,7 @@ export default function EnrollScreen() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/students', {
+      await axios.post('https://webdevschool1.herokuapp.com/api/students', {
         firstName,
         lastName,
       });
